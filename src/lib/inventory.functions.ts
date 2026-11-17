@@ -13,7 +13,7 @@ export const getInventoryAvailability = createServerFn({ method: "GET" }).handle
     const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
     if (!url || !key) {
       throw new Error(
-        "The StrideSafe database connection is missing (SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY is not set).",
+        "The IER database connection is missing (SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY is not set).",
       );
     }
     const client = createClient<Database>(url, key, {

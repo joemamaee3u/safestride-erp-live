@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { LOCATIONS, RETAIL_LOCATIONS } from "@/lib/locations";
 
 describe("company locations", () => {
-  it("has exactly the three StrideSafe locations", () => {
+  it("has exactly the three IER locations", () => {
     expect(LOCATIONS.map((l) => l.name)).toEqual([
       "Mexico City Retail Store",
       "Guadalajara Retail Store",

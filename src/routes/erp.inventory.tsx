@@ -15,7 +15,7 @@ import { useErpAction, useErpModule } from "@/lib/erp-api";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/erp/inventory")({
-  head: () => ({ meta: pageMeta("Inventory — StrideSafe ERP", "Stock, transfers, adjustments, barcode counts, and backorders by location.") }),
+  head: () => ({ meta: pageMeta("Inventory — IER ERP", "Stock, transfers, adjustments, barcode counts, and backorders by location.") }),
   component: InventoryPage,
 });
 

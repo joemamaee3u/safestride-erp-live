@@ -23,8 +23,8 @@ export const Route = createFileRoute("/auth")({
     typeof search["redirect"] === "string" ? { redirect: search["redirect"] } : {},
   head: () => ({
     meta: pageMeta(
-      "Staff sign in — StrideSafe ERP",
-      "Sign in to StrideSafe ERP to see product costs and inventory movement history.",
+      "Staff sign in — IER ERP",
+      "Sign in to IER ERP to see product costs and inventory movement history.",
     ),
   }),
   component: AuthPage,
@@ -120,7 +120,7 @@ function AuthPage() {
           <div className="mb-2 flex size-12 items-center justify-center rounded-xl bg-navy text-lime">
             <ShieldCheck className="size-6" />
           </div>
-          <CardTitle className="font-display text-2xl">StrideSafe staff sign in</CardTitle>
+          <CardTitle className="font-display text-2xl">IER staff sign in</CardTitle>
           <p className="text-sm text-muted-foreground">
             Costs and movement history are visible only to accounts an administrator has given
             staff access.

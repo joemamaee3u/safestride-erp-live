@@ -14,7 +14,7 @@ import { useErpAction, useErpModule } from "@/lib/erp-api";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/erp/pos")({
-  head: () => ({ meta: pageMeta("Point of Sale — StrideSafe ERP", "Live in-store register with barcode scan, discounts, taxes, and receipt." ) }),
+  head: () => ({ meta: pageMeta("Point of Sale — IER ERP", "Live in-store register with barcode scan, discounts, taxes, and receipt." ) }),
   component: PosPage,
 });
 

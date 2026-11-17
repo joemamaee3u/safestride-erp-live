@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { pageMeta } from "@/lib/seo";
 
-export const Route = createFileRoute("/erp/sales-orders")({ head: () => ({ meta: pageMeta("Sales Orders — StrideSafe ERP", "Reserve stock, manage backorders, and fulfill customer orders.") }), component: SalesOrdersPage });
+export const Route = createFileRoute("/erp/sales-orders")({ head: () => ({ meta: pageMeta("Sales Orders — IER ERP", "Reserve stock, manage backorders, and fulfill customer orders.") }), component: SalesOrdersPage });
 type Obj = Record<string, any>;
 function SalesOrdersPage() {
   const q = useErpModule<{ orders: Obj[]; customers: Obj[]; products: Obj[]; locations: Obj[] }>("sales_orders");

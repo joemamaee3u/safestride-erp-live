@@ -8,7 +8,7 @@ export interface CompanyLocation {
 }
 
 /**
- * StrideSafe operates exactly these three locations (matches the `locations` table).
+ * IER operates exactly these three locations (matches the `locations` table).
  * Pages wired to the database read locations from there; this list feeds pickers
  * on pages that are not connected yet.
  */

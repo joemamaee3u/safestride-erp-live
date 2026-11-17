@@ -33,7 +33,7 @@ export function useErpAction<T = unknown>(functionName: string) {
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["erp"] });
       await queryClient.invalidateQueries({ queryKey: ["storefront"] });
-      toast.success("Saved to SafeStride ERP");
+      toast.success("Saved to IER ERP");
     },
     onError: (error) => toast.error(error.message),
   });

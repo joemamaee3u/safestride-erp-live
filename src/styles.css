@@ -9,8 +9,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * StrideSafe design system
- * Navy sidebar, white workspace, charcoal type, electric-lime accents.
+ * IER design system
+ * Deep ink, warm ivory surfaces, charcoal type, and copper accents.
  */
 
 @theme inline {
@@ -74,35 +74,35 @@
   --radius: 0.75rem;
 
   /* Brand primitives */
-  --navy: oklch(0.22 0.055 262);
-  --navy-soft: oklch(0.29 0.06 262);
+  --navy: oklch(0.23 0.035 255);
+  --navy-soft: oklch(0.31 0.04 255);
   --navy-foreground: oklch(0.97 0.005 260);
-  --lime: oklch(0.91 0.22 125);
-  --lime-soft: oklch(0.96 0.09 125);
-  --lime-foreground: oklch(0.22 0.055 262);
+  --lime: oklch(0.69 0.14 43);
+  --lime-soft: oklch(0.95 0.035 72);
+  --lime-foreground: oklch(0.99 0.01 80);
   --warning: oklch(0.78 0.15 75);
   --warning-soft: oklch(0.96 0.05 85);
   --warning-foreground: oklch(0.38 0.09 60);
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.26 0.012 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.26 0.012 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.26 0.012 260);
+  --background: oklch(0.985 0.008 78);
+  --foreground: oklch(0.25 0.018 255);
+  --card: oklch(0.998 0.003 78);
+  --card-foreground: oklch(0.25 0.018 255);
+  --popover: oklch(0.998 0.003 78);
+  --popover-foreground: oklch(0.25 0.018 255);
   --primary: var(--navy);
   --primary-foreground: var(--navy-foreground);
-  --secondary: oklch(0.965 0.005 260);
-  --secondary-foreground: oklch(0.26 0.012 260);
-  --muted: oklch(0.972 0.004 260);
-  --muted-foreground: oklch(0.52 0.015 260);
+  --secondary: oklch(0.955 0.012 78);
+  --secondary-foreground: oklch(0.25 0.018 255);
+  --muted: oklch(0.96 0.009 78);
+  --muted-foreground: oklch(0.5 0.018 255);
   --accent: var(--lime-soft);
   --accent-foreground: var(--navy);
   --destructive: oklch(0.577 0.215 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.006 260);
-  --input: oklch(0.9 0.008 260);
-  --ring: oklch(0.72 0.18 125);
+  --border: oklch(0.9 0.012 78);
+  --input: oklch(0.87 0.012 78);
+  --ring: oklch(0.69 0.14 43);
   --chart-1: var(--lime);
   --chart-2: var(--navy);
   --chart-3: oklch(0.6 0.12 240);
@@ -110,12 +110,12 @@
   --chart-5: oklch(0.65 0.02 260);
 
   --sidebar: var(--navy);
-  --sidebar-foreground: oklch(0.82 0.02 260);
+  --sidebar-foreground: oklch(0.83 0.015 255);
   --sidebar-primary: var(--lime);
   --sidebar-primary-foreground: var(--lime-foreground);
   --sidebar-accent: var(--navy-soft);
   --sidebar-accent-foreground: var(--lime);
-  --sidebar-border: oklch(0.32 0.05 262);
+  --sidebar-border: oklch(0.34 0.035 255);
   --sidebar-ring: var(--lime);
 
   --gradient-night: linear-gradient(

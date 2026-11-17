@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, User, Zap } from "lucide-react";
+import { MapPin, User, Compass } from "lucide-react";
 
 const NAV = [
   { to: "/shop", label: "Shop" },
@@ -13,9 +13,9 @@ export function ShopHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 md:px-8">
         <Link to="/shop" className="flex items-center gap-2">
           <span className="flex size-8 items-center justify-center rounded-lg bg-lime text-lime-foreground">
-            <Zap className="size-4" />
+            <Compass className="size-4" />
           </span>
-          <span className="font-display text-lg font-bold tracking-tight">StrideSafe</span>
+          <span className="font-display text-lg font-bold tracking-tight">IER</span>
         </Link>
         <nav className="hidden flex-1 items-center gap-1 md:flex">
           {NAV.map((n) => (
@@ -55,8 +55,8 @@ export function ShopFooter() {
     <footer className="border-t bg-muted/50">
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-10 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between md:px-8">
         <div>
-          <p className="font-display font-bold text-foreground">StrideSafe</p>
-          <p>Reflective running gear for men who run after dark.</p>
+          <p className="font-display font-bold text-foreground">IER</p>
+          <p>Outdoor gear for the trail, camp, and everywhere between.</p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <span>Provo Trail Lab</span>

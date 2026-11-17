@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/shop/cart")({
   head: () => ({
-    meta: pageMeta("Your Cart — StrideSafe", "Review the items in your StrideSafe cart."),
+    meta: pageMeta("Your Cart — IER", "Review the items in your IER cart."),
   }),
   component: CartPage,
 });

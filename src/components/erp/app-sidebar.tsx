@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Store, Zap } from "lucide-react";
+import { Store, Compass } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -32,14 +32,14 @@ export function AppSidebar() {
       <SidebarHeader className="border-b border-sidebar-border">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild tooltip="StrideSafe ERP">
+            <SidebarMenuButton size="lg" asChild tooltip="IER ERP">
               <Link to="/erp">
                 <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-lime text-lime-foreground">
-                  <Zap className="size-4" />
+                  <Compass className="size-4" />
                 </div>
                 <div className="flex flex-col leading-tight">
                   <span className="font-display text-base font-bold text-navy-foreground">
-                    StrideSafe
+                    IER
                   </span>
                   <span className="text-[11px] uppercase tracking-[0.18em] text-sidebar-foreground">
                     ERP

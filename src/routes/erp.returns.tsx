@@ -13,7 +13,7 @@ import { useErpAction, useErpModule } from "@/lib/erp-api";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/erp/returns")({
-  head: () => ({ meta: pageMeta("Returns & Exchanges — StrideSafe ERP", "Return an item, track quality, restock good gear, and exchange items transactionally.") }),
+  head: () => ({ meta: pageMeta("Returns & Exchanges — IER ERP", "Return an item, track quality, restock good gear, and exchange items transactionally.") }),
   component: ReturnsPage,
 });
 

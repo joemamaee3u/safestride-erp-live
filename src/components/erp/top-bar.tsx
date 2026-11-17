@@ -28,7 +28,7 @@ export function TopBar() {
       <Separator orientation="vertical" className="h-6" />
       <div className="min-w-0 flex-1">
         <p className="truncate font-display text-sm font-semibold text-foreground">
-          {current?.title ?? "StrideSafe ERP"}
+          {current?.title ?? "IER ERP"}
         </p>
         <p className="hidden truncate text-xs text-muted-foreground sm:block">
           {current?.description}

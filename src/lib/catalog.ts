@@ -1,8 +1,13 @@
 /** Storefront category structure. Products themselves come from the database. */
 export const PRODUCT_CATEGORIES = [
-  "Jackets",
-  "Vests",
+  "Camping",
+  "Packs & Bags",
+  "Footwear",
+  "Sleeping Gear",
+  "Camp Kitchen",
+  "Hydration",
+  "Clothing",
   "Lighting",
-  "Bundles",
   "Accessories",
+  "Bundles",
 ] as const;

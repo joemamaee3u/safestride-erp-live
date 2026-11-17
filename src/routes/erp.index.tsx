@@ -8,7 +8,7 @@ import { useErpModule } from "@/lib/erp-api";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/erp/")({
-  head: () => ({ meta: pageMeta("Dashboard — StrideSafe ERP", "Live overview of SafeStride sales, stock, and production.") }),
+  head: () => ({ meta: pageMeta("Dashboard — IER ERP", "Live overview of IER sales, stock, and production.") }),
   component: Dashboard,
 });
 
@@ -39,7 +39,7 @@ function Dashboard() {
   const ready = Number(dashboard["night_run_readiness_percent"] ?? 0);
   return (
     <>
-      <PageHeader icon={LayoutDashboard} title="Dashboard" description="SafeStride Reflective Running Gear · live operations" />
+      <PageHeader icon={LayoutDashboard} title="Dashboard" description="IER Outdoor Gear · live operations" />
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <Metric label="Today's sales" value={money(dashboard["today_sales"])} hint="POS and pickup receipts" icon={<DollarSign />} />
         <Metric label="Open orders" value={String(dashboard["open_orders"] ?? 0)} hint="Confirmed orders awaiting fulfillment" icon={<ClipboardList />} />

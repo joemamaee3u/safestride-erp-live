@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { pageMeta } from "@/lib/seo";
 
-export const Route = createFileRoute("/erp/production")({head:()=>({meta:pageMeta("Production Orders — StrideSafe ERP","Release production, issue materials, and record quality yield and scrap.")}),component:ProductionPage});
+export const Route = createFileRoute("/erp/production")({head:()=>({meta:pageMeta("Production Orders — IER ERP","Release production, issue materials, and record quality yield and scrap.")}),component:ProductionPage});
 type Obj=Record<string,any>;
 function ProductionPage(){
  const q=useErpModule<{orders:Obj[];report:Obj[];products:Obj[];bom:Obj[];locations:Obj[]}>("production"); const [product,setProduct]=useState("");const [quantity,setQuantity]=useState("24");const [location,setLocation]=useState("");const [good,setGood]=useState("24");const [scrap,setScrap]=useState("0");const [reason,setReason]=useState("");const [from,setFrom]=useState(()=>new Date(Date.now()-30*86400000).toISOString().slice(0,10));const [to,setTo]=useState(()=>new Date().toISOString().slice(0,10));const report=useQuery<Obj[]>({queryKey:["erp","production-report",from,to],queryFn:()=>erpRpc<Obj[]>("erp_get_production_report",{p_from:from,p_to:to})});

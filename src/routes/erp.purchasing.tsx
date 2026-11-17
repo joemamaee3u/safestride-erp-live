@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useErpAction, useErpModule } from "@/lib/erp-api";
 import { pageMeta } from "@/lib/seo";
-export const Route=createFileRoute("/erp/purchasing")({head:()=>({meta:pageMeta("Purchasing & Suppliers — StrideSafe ERP","Create purchase orders, receive materials, pay suppliers, and monitor delivery scorecards.")}),component:PurchasingPage});
+export const Route=createFileRoute("/erp/purchasing")({head:()=>({meta:pageMeta("Purchasing & Suppliers — IER ERP","Create purchase orders, receive materials, pay suppliers, and monitor delivery scorecards.")}),component:PurchasingPage});
 type Obj=Record<string,any>;
 function PurchasingPage(){
  const q=useErpModule<{suppliers:Obj[];scorecards:Obj[];purchase_orders:Obj[];products:Obj[];locations:Obj[];reorder:Obj[];supplier_products:Obj[]}>("purchasing");

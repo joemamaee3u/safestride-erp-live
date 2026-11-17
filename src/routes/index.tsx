@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, LayoutDashboard, Store, Warehouse, Zap } from "lucide-react";
+import { ArrowRight, LayoutDashboard, Store, Warehouse, Compass } from "lucide-react";
 import { ConnectionPill } from "@/components/erp/connection-pill";
 import { LOCATIONS } from "@/lib/locations";
 import { pageMeta } from "@/lib/seo";
@@ -7,8 +7,8 @@ import { pageMeta } from "@/lib/seo";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: pageMeta(
-      "StrideSafe — ERP & Online Store",
-      "Choose the StrideSafe staff ERP or the customer-facing online storefront.",
+      "IER — ERP & Online Store",
+      "Outdoor gear, store operations, and inventory in one place.",
     ),
   }),
   component: Launcher,
@@ -18,7 +18,7 @@ const WORKSPACES = [
   {
     to: "/erp",
     icon: LayoutDashboard,
-    title: "StrideSafe ERP",
+    title: "IER ERP",
     body: "Point of sale, orders, inventory, production, purchasing, and financials for staff.",
     cta: "Open ERP",
   },
@@ -37,16 +37,16 @@ function Launcher() {
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
         <div className="flex items-center gap-2">
           <span className="flex size-9 items-center justify-center rounded-lg bg-lime text-lime-foreground">
-            <Zap className="size-5" />
+            <Compass className="size-5" />
           </span>
-          <span className="font-display text-xl font-bold">StrideSafe</span>
+          <span className="font-display text-xl font-bold">IER</span>
         </div>
         <ConnectionPill />
       </header>
 
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pb-16">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime">
-          Men's reflective running gear
+          Outdoor gear for trail, camp, and everyday adventure
         </p>
         <h1 className="mt-3 max-w-2xl text-4xl font-black leading-tight md:text-6xl">
           Where do you want to start?
