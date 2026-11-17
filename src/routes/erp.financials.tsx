@@ -1,0 +1,18 @@
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { createFileRoute } from "@tanstack/react-router";
+import { Landmark, TrendingUp, Wallet } from "lucide-react";
+import { PageHeader } from "@/components/erp/page-parts";
+import { DataRow, DataTable, ErrorState, LoadingState, money } from "@/components/erp/data-state";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { erpRpc } from "@/lib/erp-api";
+import { pageMeta } from "@/lib/seo";
+export const Route=createFileRoute("/erp/financials")({head:()=>({meta:pageMeta("Financial Reporting — StrideSafe ERP","Live profit and loss, inventory valuation, supplier payables, and sales tax reporting.")}),component:FinancialsPage});
+type Obj=Record<string,any>;
+function FinancialsPage(){const [from,setFrom]=useState(()=>new Date(Date.now()-30*86400000).toISOString().slice(0,10));const [to,setTo]=useState(()=>new Date().toISOString().slice(0,10));const q=useQuery<Obj>({queryKey:["erp","financial-report",from,to],queryFn:()=>erpRpc<Obj>("erp_get_financial_report",{p_from:from,p_to:to})});if(q.isPending)return <LoadingState/>;if(q.error)return <ErrorState error={q.error}/>;const f=q.data??{};const pnl=f.profit_and_loss??{};const valuation=f.inventory_valuation??{};const metric=(label:string,value:unknown,icon:any)=><Card key={label}><CardContent className="p-4"><div className="flex items-center justify-between text-sm text-muted-foreground">{label}{icon}</div><div className="mt-2 text-2xl font-bold">{money(value)}</div></CardContent></Card>;
+return <><PageHeader icon={Landmark} title="Financial Reporting" description="A live view of revenue, margin, inventory value, tax, and supplier balances."/><div className="mb-4 flex flex-wrap items-end gap-3"><label className="grid gap-1 text-xs text-muted-foreground">From<Input type="date" value={from} onChange={e=>setFrom(e.target.value)}/></label><label className="grid gap-1 text-xs text-muted-foreground">To<Input type="date" value={to} onChange={e=>setTo(e.target.value)}/></label><p className="pb-2 text-sm text-muted-foreground">The report refreshes automatically when transactions post.</p></div>
+<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{metric("Gross sales",pnl.gross_sales,<TrendingUp className="size-4"/>)}{metric("Net revenue",pnl.net_revenue,<TrendingUp className="size-4"/>)}{metric("Cost of goods sold",pnl.cost_of_goods_sold,<Wallet className="size-4"/>)}{metric("Gross profit",pnl.gross_profit,<Landmark className="size-4"/>)}{metric("Inventory valuation",valuation.value,<Wallet className="size-4"/>)}{metric("Sales tax collected",pnl.sales_tax_collected,<Landmark className="size-4"/>)}{metric("Inventory turnover",f.inventory_turnover,<Wallet className="size-4"/>)}{metric("Gross margin",pnl.net_revenue?`${(100*Number(pnl.gross_profit)/Number(pnl.net_revenue)).toFixed(1)}%`:"0%",<TrendingUp className="size-4"/>)}</div>
+<section className="mt-5 rounded-xl border bg-card p-4"><h2 className="mb-3 font-semibold">Profit & loss · {from} to {to}</h2><DataTable columns={["Account","Amount"]}>{Object.entries(pnl).map(([k,v])=><DataRow key={k} values={[k.replaceAll("_"," ").replace(/\b\w/g,x=>x.toUpperCase()),typeof v==="number"?money(v):String(v)]}/>)}</DataTable></section>
+<section className="mt-5 rounded-xl border bg-card p-4"><h2 className="mb-3 font-semibold">Inventory valuation · weighted average cost</h2><DataTable columns={["Method","Units on hand","Current value","Inventory turnover"]}><DataRow values={[valuation.method??"Weighted average",valuation.units??0,money(valuation.value),Number(f.inventory_turnover??0).toFixed(2)]}/></DataTable></section>
+</>}
