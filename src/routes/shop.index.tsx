@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Search, Shirt } from "lucide-react";
-import heroImg from "@/assets/storefront-hero.jpg";
+import heroImg from "@/assets/ier-camping-hero.png";
 import productSheet from "@/assets/ier-product-contact-sheet.png";
 import { LoadingState, ErrorState } from "@/components/erp/data-state";
 import { Button } from "@/components/ui/button";
@@ -96,7 +96,7 @@ function CatalogPage() {
       <section className="relative overflow-hidden bg-navy text-navy-foreground">
         <img
           src={heroImg}
-          alt="Outdoor adventurer heading into the mountains at dusk"
+          alt="Friends camping together in a mountain meadow at sunset"
           className="absolute inset-0 h-full w-full object-cover object-right opacity-90"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-transparent" />
