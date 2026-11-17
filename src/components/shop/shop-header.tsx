@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, User, Compass } from "lucide-react";
+import { MapPin, User, Compass, ShoppingBag } from "lucide-react";
+import { useStoreCart } from "@/lib/store-cart";
 
 const NAV = [
   { to: "/shop", label: "Shop" },
@@ -8,6 +9,9 @@ const NAV = [
 ] as const;
 
 export function ShopHeader() {
+  const { lines } = useStoreCart();
+  const cartCount = lines.reduce((sum, line) => sum + line.quantity, 0);
+
   return (
     <header className="sticky top-0 z-30 border-b border-sidebar-border bg-navy text-navy-foreground reflect-stripe">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 md:px-8">
@@ -36,6 +40,18 @@ export function ShopHeader() {
             aria-label="Store pickup"
           >
             <MapPin className="size-5" />
+          </Link>
+          <Link
+            to="/shop/cart"
+            className="relative flex size-10 items-center justify-center rounded-md hover:bg-navy-soft"
+            aria-label={`Cart, ${cartCount} ${cartCount === 1 ? "item" : "items"}`}
+          >
+            <ShoppingBag className="size-5" />
+            {cartCount > 0 && (
+              <span className="absolute right-0.5 top-0.5 min-w-4 rounded-full bg-lime px-1 text-center text-[10px] font-bold leading-4 text-lime-foreground">
+                {cartCount}
+              </span>
+            )}
           </Link>
           <Link
             to="/shop/account"

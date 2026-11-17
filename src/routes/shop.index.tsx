@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Search, Shirt } from "lucide-react";
+import { ArrowRight, Search, Shirt, ShoppingBag } from "lucide-react";
 import heroImg from "@/assets/ier-camping-hero.png";
 import productSheet from "@/assets/ier-product-contact-sheet.png";
 import { LoadingState, ErrorState } from "@/components/erp/data-state";
@@ -18,6 +18,7 @@ import { useStorefrontCatalog, type ErpProduct } from "@/lib/erp-api";
 import { pageMeta } from "@/lib/seo";
 import { PRODUCT_CATEGORIES } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
+import { useStoreCart } from "@/lib/store-cart";
 
 export const Route = createFileRoute("/shop/")({
   head: () => ({
@@ -66,6 +67,7 @@ function CatalogPage() {
   const [category, setCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [selectedProduct, setSelectedProduct] = useState<ErpProduct | null>(null);
+  const { setLines: setCartLines } = useStoreCart();
   const q = useStorefrontCatalog();
   const products = q.data ?? [];
 
@@ -90,6 +92,18 @@ function CatalogPage() {
         .filter((product) => product.id === selectedProduct.id)
         .reduce((sum, product) => sum + Number(product.quantity_available), 0)
     : 0;
+
+  const addToCart = (product: ErpProduct) => {
+    setCartLines((current) => {
+      const existing = current.find((line) => line.product_id === product.id);
+      return existing
+        ? current.map((line) =>
+            line.product_id === product.id ? { ...line, quantity: line.quantity + 1 } : line,
+          )
+        : [...current, { product_id: product.id, quantity: 1 }];
+    });
+    setSelectedProduct(null);
+  };
 
   return (
     <>
@@ -259,6 +273,9 @@ function CatalogPage() {
               <DialogFooter>
                 <Button variant="outline" onClick={() => setSelectedProduct(null)}>
                   Keep browsing
+                </Button>
+                <Button variant="outline" onClick={() => addToCart(selectedProduct)}>
+                  <ShoppingBag /> Add to cart
                 </Button>
                 <Button variant="lime" asChild>
                   <Link to="/shop/pickup">
